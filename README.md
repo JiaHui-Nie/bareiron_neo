@@ -15,14 +15,9 @@ For PC x86_64 platforms, grab the [latest build binary](https://github.com/p2r3/
 For microcontrollers, see the section on **compilation** below.
 
 ## Compilation
-Before compiling, you'll need to dump registry data from a vanilla Minecraft server. On Linux, this can be done automatically using the `extract_registries.sh` script. Otherwise, the manual process is as follows: create a folder called `notchian` here, and put a Minecraft server JAR in it. Then, follow [this guide](https://minecraft.wiki/w/Minecraft_Wiki:Projects/wiki.vg_merge/Data_Generators) to dump all of the registries (use the _second_ command with the `--all` flag). Finally, run `build_registries.js` with either [bun](https://bun.sh/), [node](https://nodejs.org/en/download), or [deno](https://docs.deno.com/runtime/getting_started/installation/).
+Before compiling, you'll need to dump registry data from a vanilla Minecraft server. This can be done automatically using the `1.download_server.py` `2.extract_registries.py` `3.build_registries.py` scripts one by one.
 
-- To compile on Linux, install `gcc` and run `./build.sh`.
-- For compiling on Windows, there are a few options:
-  - To compile a native Windows binary: install [MSYS2](https://www.msys2.org/) and open the "MSYS2 MINGW64" shell. From there, run `pacman -Sy mingw-w64-x86_64-gcc`, navigate to this project's directory, and run `./build.sh`.
-  - To compile a native 32-bit binary (compatible with Windows 95/98, but why would you ever want that), use the same steps above, except with `pacman -Sy mingw-w64-cross-gcc` and `./build.sh --9x`.
-  - To compile a MSYS2-linked binary: install [MSYS2](https://www.msys2.org/), and open the "MSYS2 MSYS" shell. From there, install `gcc` (run `pacman -Sy gcc`), navigate to this project's directory and run `./build.sh`. 
-  - To compile and run a Linux binary from Windows: install WSL, and from there install `gcc` and run `./build.sh` in this project's directory.
+- To compile on Linux/Windows, install `gcc` and run `4.build.py`.
 - To target an ESP variant, set up a PlatformIO project (select the ESP-IDF framework, **not Arduino**) and clone this repository on top of it. See **Configuration** below for further steps. For better performance, consider changing the clock speed and enabling compiler optimizations. If you don't know how to do this, there are plenty of resources online.
 
 ## Configuration
