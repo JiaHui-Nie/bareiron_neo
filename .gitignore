@@ -1,7 +1,7 @@
-.vscode
-notchian
-bareiron
-bareiron.exe
+.vscode/
+notchian/
 src/registries.c
 include/registries.h
+bareiron
+bareiron.exe
 *.bin
