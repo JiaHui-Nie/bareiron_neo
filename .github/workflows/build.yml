@@ -15,36 +15,36 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
       - name: Set up JDK 21
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           java-version: '21'
           distribution: 'temurin' # temurin / microsoft / zulu / oracle
 
       - name: Download cosmocc
-        run:
+        run: |
           curl -LO https://cosmo.zip/pub/cosmocc/cosmocc.zip
           unzip cosmocc.zip -d cosmocc
           echo "$PWD/cosmocc/bin" >> $GITHUB_PATH
 
       - name: Dump Minecraft server registries
-        run:
+        run: |
           python 1.download_server.py
           python 2.extract_registries.py
 
       - name: Generate registry headers
-        run:
+        run: |
           python 3.build_registries.py
 
       - name: Build project
-        run:
+        run: |
           cosmocc src/*.c -O2 -Iinclude -o bareiron.exe
 
       - name: Upload release
