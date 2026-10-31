@@ -31,7 +31,7 @@ jobs:
       - name: Download cosmocc
         run: |
           curl -LO https://github.com/jart/cosmopolitan/releases/download/4.0.2/cosmocc-4.0.2.zip # https://cosmo.zip/pub/cosmocc/cosmocc.zip
-          unzip cosmocc.zip -d cosmocc
+          unzip cosmocc-4.0.2.zip -d cosmocc
           echo "$PWD/cosmocc/bin" >> $GITHUB_PATH
 
       - name: Dump Minecraft server registries
